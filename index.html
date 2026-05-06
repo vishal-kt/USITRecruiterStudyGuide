@@ -24,6 +24,20 @@
     --radius-sm: 8px;
   }
 
+  body.dark-mode {
+    --bg: #0f0f0f;
+    --surface: #1a1a1a;
+    --surface2: #252525;
+    --border: rgba(255,255,255,0.1);
+    --border2: rgba(255,255,255,0.18);
+    --text: #f0f0f0;
+    --text2: #c0c0c0;
+    --text3: #888;
+    --navy: #3d7dd8;
+    --navy2: #5a92e0;
+    --navy3: #4a85d8;
+  }
+
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     background: var(--bg);
@@ -191,6 +205,11 @@
   .badge-advanced { background: #ede9fe; color: #5b21b6; }
   .badge-tool { background: #dcfce7; color: #166534; }
 
+  body.dark-mode .badge-must { background: #3d1a1a; color: #ff6b6b; }
+  body.dark-mode .badge-core { background: #1a2d4d; color: #7dd3fc; }
+  body.dark-mode .badge-advanced { background: #2d1a4d; color: #c69fee; }
+  body.dark-mode .badge-tool { background: #1a3d1a; color: #5eead4; }
+
   .toggle-btn {
     position: absolute;
     top: 14px; right: 14px;
@@ -233,6 +252,10 @@
   td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
   tr:last-child td { border-bottom: none; }
 
+  body.dark-mode th {
+    background: rgba(255,255,255,0.04);
+  }
+
   /* CHECKLIST */
   .checklist { list-style: none; }
   .checklist li {
@@ -268,6 +291,17 @@
     font-size: 12px;
     color: #78350f;
     line-height: 1.6;
+  }
+
+  body.dark-mode .tip {
+    background: #1a3d5c;
+    border-left-color: #4fa3ff;
+    color: #a8d5ff;
+  }
+  body.dark-mode .warn {
+    background: #5c4d1a;
+    border-left-color: #ffb347;
+    color: #ffe8a8;
   }
 
   /* SECTION HEADING */
@@ -395,6 +429,11 @@
   .quiz-feedback.show { display: block; }
   .quiz-feedback.correct { background: #dcfce7; color: #166534; }
   .quiz-feedback.wrong { background: #fde8e8; color: #9b1c1c; }
+
+  body.dark-mode .quiz-opt.correct { background: #1a3d1a !important; color: #5eead4 !important; border-color: #5eead4 !important; }
+  body.dark-mode .quiz-opt.wrong { background: #3d1a1a !important; color: #ff6b6b !important; border-color: #ff6b6b !important; }
+  body.dark-mode .quiz-feedback.correct { background: #1a3d1a; color: #5eead4; }
+  body.dark-mode .quiz-feedback.wrong { background: #3d1a1a; color: #ff6b6b; }
   .quiz-complete {
     display: none;
     background: #dcfce7;
@@ -405,6 +444,16 @@
   }
   .quiz-complete-title { font-size: 20px; font-weight: 600; color: #166534; margin-bottom: 8px; }
   .quiz-complete-msg { font-size: 14px; color: #14532d; }
+
+  body.dark-mode .quiz-complete {
+    background: #1a3d1a;
+  }
+  body.dark-mode .quiz-complete-title {
+    color: #5eead4;
+  }
+  body.dark-mode .quiz-complete-msg {
+    color: #7fffd5;
+  }
 
   /* SCORE BAR */
   .score-bar {
@@ -445,6 +494,13 @@
   .t-review { background: var(--surface2); color: var(--text2); }
   .t-mock { background: #fce7f3; color: #831843; }
 
+  body.dark-mode .t-boolean { background: #1a2d4d; color: #7dd3fc; }
+  body.dark-mode .t-visa { background: #2d1a4d; color: #c69fee; }
+  body.dark-mode .t-tech { background: #1a3d1a; color: #5eead4; }
+  body.dark-mode .t-call { background: #5c4d1a; color: #ffe8a8; }
+  body.dark-mode .t-compliance { background: #3d1a1a; color: #ff6b6b; }
+  body.dark-mode .t-mock { background: #4d1a3d; color: #f472b6; }
+
   /* CAREER PATH */
   .career-path {
     display: flex;
@@ -481,9 +537,53 @@
     .career-path { flex-direction: column; align-items: flex-start; }
     .career-arrow { transform: rotate(90deg); }
   }
+
+  /* NIGHT MODE TOGGLE */
+  .theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  body.dark-mode .theme-toggle {
+    box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+  }
+
+  .theme-toggle:hover {
+    transform: scale(1.1);
+  }
+
+  .theme-toggle:active {
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 600px) {
+    .theme-toggle {
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+    }
+  }
+
 </style>
 </head>
 <body>
+<button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle night mode">🌙</button>
 <div class="container">
 
   <!-- HERO -->
@@ -1412,6 +1512,36 @@
 </div><!-- end container -->
 
 <script>
+  // NIGHT MODE THEME TOGGLE
+  function toggleTheme() {
+    var isDark = document.body.classList.toggle('dark-mode');
+    var toggle = document.getElementById('theme-toggle');
+    toggle.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+
+  // INITIALIZE THEME ON PAGE LOAD
+  function initTheme() {
+    var savedTheme = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+    
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+      document.getElementById('theme-toggle').textContent = '☀️';
+    } else {
+      document.getElementById('theme-toggle').textContent = '🌙';
+    }
+  }
+
+  // Initialize theme when page loads
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTheme);
+  } else {
+    initTheme();
+  }
+
+  // REST OF THE EXISTING SCRIPTS
   var prog = { bp:0, cc:0, ts:0 };
   var rmCount = 0;
   var qScore = 0, qAnswered = 0;
