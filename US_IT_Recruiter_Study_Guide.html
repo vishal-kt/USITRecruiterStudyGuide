@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>US IT Staffing Recruiter — Ultimate Study Guide</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f5f0;
+    --surface: #ffffff;
+    --surface2: #f0efe9;
+    --border: rgba(0,0,0,0.1);
+    --border2: rgba(0,0,0,0.18);
+    --text: #1a1a1a;
+    --text2: #555;
+    --text3: #888;
+    --navy: #0f3460;
+    --navy2: #16213e;
+    --navy3: #1a1a2e;
+    --accent: #7dd3fc;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem 2rem;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 250px; height: 250px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 30%;
+    width: 350px; height: 350px;
+    background: rgba(255,255,255,0.025);
+    border-radius: 50%;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 0.5px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 11px;
+    color: #a8c4e0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    position: relative; z-index: 1;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    position: relative; z-index: 1;
+  }
+  .hero p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    position: relative; z-index: 1;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+  .hero-stat span:first-child { display: block; font-size: 22px; font-weight: 600; color: #7dd3fc; }
+  .hero-stat span:last-child { display: block; font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .tab {
+    flex: 1;
+    min-width: 130px;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .tab:hover { background: var(--surface2); }
+  .tab.active { background: var(--navy3); border-color: var(--navy3); color: white; }
+  .tab .tab-label { font-size: 10px; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.5px; }
+  .tab.active .tab-label { color: #a8c4e0; opacity: 1; }
+  .tab .tab-title { font-size: 14px; font-weight: 600; margin-top: 2px; }
+
+  /* SECTION NAV */
+  .section-nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .nav-pill {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--text2);
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .nav-pill:hover { background: var(--surface2); color: var(--text); }
+  .nav-pill.active { background: var(--navy); border-color: var(--navy); color: white; }
+
+  /* CONTENT */
+  .content-area { display: none; }
+  .content-area.visible { display: block; }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+  }
+  .card:hover { border-color: var(--border2); }
+  .card.open { border-color: var(--navy); }
+  .card-header { display: flex; align-items: flex-start; gap: 12px; }
+  .card-icon {
+    width: 40px; height: 40px;
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .card-meta { flex: 1; padding-right: 28px; }
+  .card-title { font-size: 14px; font-weight: 600; }
+  .card-sub { font-size: 12px; color: var(--text2); margin-top: 2px; line-height: 1.4; }
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 9px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+  .badge-must { background: #fde8e8; color: #9b1c1c; }
+  .badge-core { background: #dbeafe; color: #1e40af; }
+  .badge-advanced { background: #ede9fe; color: #5b21b6; }
+  .badge-tool { background: #dcfce7; color: #166534; }
+
+  .toggle-btn {
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; line-height: 1;
+    color: var(--text3);
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-family: inherit;
+  }
+  .card.open .toggle-btn { transform: rotate(45deg); }
+
+  .card-body {
+    background: var(--surface2);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    margin-top: 14px;
+    display: none;
+  }
+  .card.open .card-body { display: block; }
+
+  /* TABLES */
+  .tbl-wrap { overflow-x: auto; margin: 10px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th {
+    background: rgba(0,0,0,0.04);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text2);
+    border-bottom: 1px solid var(--border);
+  }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+  tr:last-child td { border-bottom: none; }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 0;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; accent-color: var(--navy); width: 15px; height: 15px; }
+  .sub { color: var(--text2); font-size: 11px; display: block; margin-top: 3px; }
+
+  /* TIP BOXES */
+  .tip {
+    background: #dbeafe;
+    border-left: 3px solid #2563eb;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 12px;
+    color: #1e3a8a;
+    line-height: 1.6;
+  }
+  .warn {
+    background: #fef3c7;
+    border-left: 3px solid #d97706;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 12px;
+    color: #78350f;
+    line-height: 1.6;
+  }
+
+  /* SECTION HEADING */
+  .section-heading {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ROADMAP */
+  .roadmap-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 14px;
+  }
+  .roadmap-block-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .roadmap-step {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .roadmap-step:last-child { border-bottom: none; }
+  .step-num {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .step-info { flex: 1; }
+  .step-title { font-size: 14px; font-weight: 600; }
+  .step-desc { font-size: 12px; color: var(--text2); margin-top: 4px; line-height: 1.5; }
+  .step-week {
+    display: inline-block;
+    font-size: 10px;
+    background: var(--surface2);
+    color: var(--text3);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 5px;
+  }
+
+  /* PROGRESS */
+  .progress-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 16px;
+  }
+  .progress-card-title { font-size: 14px; font-weight: 600; margin-bottom: 14px; }
+  .progress-row { margin-bottom: 12px; }
+  .progress-label-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--text2); margin-bottom: 5px; }
+  .progress-track {
+    background: var(--surface2);
+    border-radius: 10px;
+    height: 7px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+  }
+  .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .btn {
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border2);
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--text);
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: var(--surface2); }
+
+  /* QUIZ */
+  .quiz-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 14px;
+  }
+  .quiz-q { font-size: 14px; font-weight: 600; margin-bottom: 12px; line-height: 1.5; }
+  .quiz-options { display: flex; flex-direction: column; gap: 7px; }
+  .quiz-opt {
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.15s;
+    background: var(--surface);
+    line-height: 1.5;
+  }
+  .quiz-opt:hover { background: var(--surface2); }
+  .quiz-opt.correct { background: #dcfce7 !important; border-color: #166534 !important; color: #166534; }
+  .quiz-opt.wrong { background: #fde8e8 !important; border-color: #9b1c1c !important; color: #9b1c1c; }
+  .quiz-feedback {
+    display: none;
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.correct { background: #dcfce7; color: #166534; }
+  .quiz-feedback.wrong { background: #fde8e8; color: #9b1c1c; }
+  .quiz-complete {
+    display: none;
+    background: #dcfce7;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 14px;
+  }
+  .quiz-complete-title { font-size: 20px; font-weight: 600; color: #166534; margin-bottom: 8px; }
+  .quiz-complete-msg { font-size: 14px; color: #14532d; }
+
+  /* SCORE BAR */
+  .score-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+  }
+  .score-bar span { font-size: 13px; color: var(--text2); }
+  .score-bar strong { font-weight: 700; color: var(--navy); font-size: 16px; }
+
+  /* DAILY GRID */
+  .daily-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .day-col { text-align: center; }
+  .day-hdr { font-size: 10px; color: var(--text3); text-transform: uppercase; margin-bottom: 6px; font-weight: 600; }
+  .task {
+    font-size: 10px;
+    padding: 4px 5px;
+    border-radius: 5px;
+    margin-bottom: 4px;
+    line-height: 1.3;
+    text-align: left;
+  }
+  .t-boolean { background: #dbeafe; color: #1e40af; }
+  .t-visa { background: #ede9fe; color: #5b21b6; }
+  .t-tech { background: #dcfce7; color: #166534; }
+  .t-call { background: #fef3c7; color: #78350f; }
+  .t-compliance { background: #fde8e8; color: #9b1c1c; }
+  .t-review { background: var(--surface2); color: var(--text2); }
+  .t-mock { background: #fce7f3; color: #831843; }
+
+  /* CAREER PATH */
+  .career-path {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .career-node {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 12px;
+    text-align: center;
+    min-width: 110px;
+  }
+  .career-node .cn-title { font-weight: 600; font-size: 13px; }
+  .career-node .cn-time { font-size: 10px; color: var(--text3); margin-top: 2px; }
+  .career-arrow { font-size: 18px; color: var(--text3); padding: 0 6px; }
+
+  /* PRINT */
+  @media print {
+    .tabs, .section-nav, .btn-row, .btn { display: none !important; }
+    .content-area { display: block !important; }
+    .card-body { display: block !important; }
+    body { background: white; }
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 22px; }
+    .hero-stats { gap: 1rem; }
+    .daily-grid { grid-template-columns: repeat(4, 1fr); }
+    .career-path { flex-direction: column; align-items: flex-start; }
+    .career-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">Ultimate Study Guide 2024</div>
+    <h1>US IT Staffing Recruiter<br>Mastery Guide</h1>
+    <p>Everything from day-1 basics to senior-level strategy — structured, practical, and complete.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span>10</span><span>Mastery Zones</span></div>
+      <div class="hero-stat"><span>2</span><span>Career Levels</span></div>
+      <div class="hero-stat"><span>90-Day</span><span>Roadmap</span></div>
+      <div class="hero-stat"><span>Quiz</span><span>Self-Test</span></div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('junior', this)">
+      <div class="tab-label">Level 1</div>
+      <div class="tab-title">Junior Recruiter</div>
+    </div>
+    <div class="tab" onclick="switchTab('senior', this)">
+      <div class="tab-label">Level 2</div>
+      <div class="tab-title">Senior Recruiter</div>
+    </div>
+    <div class="tab" onclick="switchTab('roadmap', this)">
+      <div class="tab-label">Plan</div>
+      <div class="tab-title">90-Day Roadmap</div>
+    </div>
+    <div class="tab" onclick="switchTab('quiz', this)">
+      <div class="tab-label">Test</div>
+      <div class="tab-title">Self-Quiz</div>
+    </div>
+    <div class="tab" onclick="switchTab('career', this)">
+      <div class="tab-label">Growth</div>
+      <div class="tab-title">Career Path</div>
+    </div>
+  </div>
+
+  <!-- SECTION NAV (junior only) -->
+  <div id="sec-nav" class="section-nav">
+    <div class="nav-pill active" onclick="showSec('foundations', this)">Foundations</div>
+    <div class="nav-pill" onclick="showSec('sourcing', this)">Sourcing</div>
+    <div class="nav-pill" onclick="showSec('tech', this)">Tech Knowledge</div>
+    <div class="nav-pill" onclick="showSec('communication', this)">Communication</div>
+    <div class="nav-pill" onclick="showSec('compliance', this)">Compliance</div>
+    <div class="nav-pill" onclick="showSec('tools', this)">Tools & ATS</div>
+    <div class="nav-pill" onclick="showSec('daily', this)">Daily Routine</div>
+  </div>
+
+  <!-- ===== JUNIOR ===== -->
+  <div id="tab-junior" class="content-area visible">
+
+    <!-- FOUNDATIONS -->
+    <div id="sec-foundations" class="content-area visible">
+      <div class="section-heading">🏛️ US Staffing Foundations</div>
+      <div class="card-grid">
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#dbeafe;">💼</div>
+            <div class="card-meta">
+              <div class="card-title">Employment Types</div>
+              <div class="card-sub">W2, C2C, 1099 — know them cold</div>
+              <span class="badge badge-must">Must Know</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tbl-wrap">
+              <table>
+                <tr><th>Type</th><th>Meaning</th><th>Tax responsibility</th><th>Key use case</th></tr>
+                <tr><td><strong>W2</strong></td><td>Employee on payroll</td><td>Employer withholds</td><td>Most common. Safe for candidate.</td></tr>
+                <tr><td><strong>C2C</strong></td><td>Corp to Corp — vendor bills vendor</td><td>Candidate's own LLC</td><td>Senior contractors, higher rate</td></tr>
+                <tr><td><strong>1099</strong></td><td>Independent contractor</td><td>Candidate handles it all</td><td>Short gigs, rare in IT staffing</td></tr>
+                <tr><td><strong>FTE</strong></td><td>Full-time direct hire</td><td>Employer withholds</td><td>Permanent placement</td></tr>
+              </table>
+            </div>
+            <div class="tip">💡 Always ask: "Are you open to W2?" — most clients prefer W2 to reduce risk. If candidate insists on C2C, verify their LLC/Inc is real and active.</div>
+          </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#ede9fe;">🛂</div>
+            <div class="card-meta">
+              <div class="card-title">Visa Types</div>
+              <div class="card-sub">Work authorization — your daily filter</div>
+              <span class="badge badge-must">Must Know</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tbl-wrap">
+              <table>
+                <tr><th>Visa</th><th>Full Form</th><th>Sponsor needed?</th><th>Key Note</th></tr>
+                <tr><td><strong>USC</strong></td><td>US Citizen</td><td>No</td><td>Can work anywhere, any client</td></tr>
+                <tr><td><strong>GC</strong></td><td>Green Card</td><td>No</td><td>Permanent resident. Treat like USC.</td></tr>
+                <tr><td><strong>H1B</strong></td><td>H-1B Visa</td><td>Yes</td><td>Employer must transfer/sponsor. Cap subject.</td></tr>
+                <tr><td><strong>OPT</strong></td><td>Optional Practical Training</td><td>No (12–36 mo)</td><td>F1 student. Has EAD card. Check expiry!</td></tr>
+                <tr><td><strong>CPT</strong></td><td>Curricular Practical Training</td><td>No</td><td>Student working during studies. Limited hours.</td></tr>
+                <tr><td><strong>TN</strong></td><td>Trade NAFTA</td><td>No</td><td>Canadian/Mexican citizens only. Job-specific.</td></tr>
+                <tr><td><strong>EAD</strong></td><td>Employment Auth Document</td><td>No</td><td>Covers H4-EAD, GC EAD, OPT EAD</td></tr>
+                <tr><td><strong>L1</strong></td><td>Intracompany Transfer</td><td>Yes (same company)</td><td>Cannot be placed at another company</td></tr>
+              </table>
+            </div>
+            <div class="warn">⚠️ OPT STEM extension gives 3 years total. Always ask: "What is your OPT expiry date?" Placing someone whose OPT expires mid-project = disaster.</div>
+          </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#dcfce7;">💰</div>
+            <div class="card-meta">
+              <div class="card-title">Rate Calculations</div>
+              <div class="card-sub">Bill rate, pay rate, margin — the math</div>
+              <span class="badge badge-must">Must Know</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li><input type="checkbox"><div><strong>Bill Rate</strong> = what client pays your company per hour<span class="sub">Example: Client pays $80/hr</span></div></li>
+              <li><input type="checkbox"><div><strong>Pay Rate</strong> = what you pay the candidate per hour<span class="sub">Example: You pay candidate $65/hr</span></div></li>
+              <li><input type="checkbox"><div><strong>Gross Margin</strong> = Bill Rate − Pay Rate = $80 − $65 = $15/hr<span class="sub">On 40hrs/week → $600/week margin for the company</span></div></li>
+              <li><input type="checkbox"><div><strong>CTC (Cost to Company)</strong> = Pay Rate + Benefits + Employer taxes (~20–25% overhead)<span class="sub">W2 with benefits: add ~$8–12/hr overhead on top of pay rate</span></div></li>
+              <li><input type="checkbox"><div><strong>W2 vs C2C equivalence</strong> — C2C rates are higher because candidate pays own taxes<span class="sub">W2 $60/hr ≈ C2C $70–75/hr rough equivalence</span></div></li>
+            </ul>
+            <div class="tip">💡 Quick rule: To convert W2 to C2C equivalent, add 20–25%. Client always quotes Bill Rate. Your job: negotiate Pay Rate to keep margin healthy (minimum 15–20% margin).</div>
+          </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#fef3c7;">🏢</div>
+            <div class="card-meta">
+              <div class="card-title">Vendor/Client Layers</div>
+              <div class="card-sub">Who is who in the supply chain</div>
+              <span class="badge badge-core">Core</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tbl-wrap">
+              <table>
+                <tr><th>Layer</th><th>Role</th><th>Your relationship</th></tr>
+                <tr><td>Direct Client</td><td>Actual company with the need (JPMorgan, Google)</td><td>Best position — highest margin</td></tr>
+                <tr><td>Implementation Partner</td><td>SI firms: TCS, Infosys, Wipro, Accenture</td><td>Often manage the MSP layer</td></tr>
+                <tr><td>Prime Vendor</td><td>Has direct contract with end client</td><td>You submit candidates through them</td></tr>
+                <tr><td>Tier-1 Vendor</td><td>Approved vendor with MSA signed</td><td>Preferred; better rates</td></tr>
+                <tr><td>Tier-2 Sub-vendor</td><td>You go through Tier-1 to reach client</td><td>Lower margin — avoid if possible</td></tr>
+              </table>
+            </div>
+            <div class="warn">⚠️ Fewer layers = more margin for you. Always ask: "Are you the prime vendor or do you have a tier above you?"</div>
+          </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#fce7f3;">🗺️</div>
+            <div class="card-meta">
+              <div class="card-title">US Time Zones</div>
+              <div class="card-sub">Critical for scheduling across the US</div>
+              <span class="badge badge-core">Core</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tbl-wrap">
+              <table>
+                <tr><th>Zone</th><th>Abbr.</th><th>UTC offset</th><th>Major cities</th></tr>
+                <tr><td>Eastern</td><td>EST/EDT</td><td>UTC−5/−4</td><td>New York, Boston, Atlanta, Miami</td></tr>
+                <tr><td>Central</td><td>CST/CDT</td><td>UTC−6/−5</td><td>Chicago, Dallas, Houston, Minneapolis</td></tr>
+                <tr><td>Mountain</td><td>MST/MDT</td><td>UTC−7/−6</td><td>Denver, Phoenix, Salt Lake City</td></tr>
+                <tr><td>Pacific</td><td>PST/PDT</td><td>UTC−8/−7</td><td>San Francisco, Los Angeles, Seattle</td></tr>
+              </table>
+            </div>
+            <div class="tip">💡 From India (IST = UTC+5:30): EST is IST −10:30 hrs. If it's 9 AM EST, it's 7:30 PM IST. Most US recruiter calls happen 8 AM–6 PM in the candidate's time zone.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SOURCING -->
+    <div id="sec-sourcing" class="content-area">
+      <div class="section-heading">🔍 Sourcing Mastery</div>
+      <div class="card-grid">
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#dbeafe;">🔍</div>
+            <div class="card-meta">
+              <div class="card-title">Boolean Search Mastery</div>
+              <div class="card-sub">Your most powerful sourcing weapon</div>
+              <span class="badge badge-must">Must Know</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li><input type="checkbox"><div><strong>AND</strong> — narrows results. Both terms must be present<span class="sub">Java AND "Spring Boot" → must have both</span></div></li>
+              <li><input type="checkbox"><div><strong>OR</strong> — broadens results. Either term works<span class="sub">(Java OR J2EE OR "Core Java") → any of these</span></div></li>
+              <li><input type="checkbox"><div><strong>NOT</strong> — excludes terms<span class="sub">NOT (Junior OR Fresher OR Intern OR Trainee OR "Entry Level")</span></div></li>
+              <li><input type="checkbox"><div><strong>Quotes ""</strong> — exact phrase match<span class="sub">"Machine Learning" → exact phrase, not separate words</span></div></li>
+              <li><input type="checkbox"><div><strong>Parentheses ()</strong> — grouping for logic<span class="sub">(Java OR Python) AND (AWS OR Azure)</span></div></li>
+            </ul>
+            <div class="tip"><strong>Sample Production String:</strong><br><br>(Java OR J2EE OR "Core Java") AND ("Spring Boot" OR Microservices OR Hibernate) AND (Developer OR Engineer OR Programmer) NOT (Junior OR Fresher OR Intern OR Trainee OR "Entry Level")</div>
+            <div class="tip"><strong>Google X-Ray for LinkedIn:</strong><br><br>site:linkedin.com/in "Java Developer" "New York" "Open to work"</div>
+          </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#dcfce7;">🎯</div>
+            <div class="card-meta">
+              <div class="card-title">Platform Sourcing</div>
+              <div class="card-sub">Where and how to find candidates</div>
+              <span class="badge badge-core">Core</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tbl-wrap">
+              <table>
+                <tr><th>Platform</th><th>Best For</th><th>Key Feature</th></tr>
+                <tr><td>Dice.com</td><td>IT-specific US talent</td><td>Resume search, tech filters, H1B status filter</td></tr>
+                <tr><td>LinkedIn</td><td>Passive candidates, senior talent</td><td>Boolean search, "Open to Work" filter</td></tr>
+                <tr><td>Monster</td><td>Broad US database</td><td>Power Resume Search with advanced filters</td></tr>
+                <tr><td>Indeed Resume</td><td>Active job seekers</td><td>Large volume, lower quality — screen hard</td></tr>
+                <tr><td>CareerBuilder</td><td>Mid-level candidates</td><td>Resume database with filters</td></tr>
+                <tr><td>GitHub</td><td>Developers with proof of work</td><td>Search by language and location in profiles</td></tr>
+                <tr><td>Stack Overflow</td><td>Senior engineers</td><td>Passive talent, very specialized</td></tr>
+                <tr><td>ZipRecruiter</td><td>Active seekers</td><td>AI matching, broad reach</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#fde8e8;">🚩</div>
+            <div class="card-meta">
+              <div class="card-title">Fake Resume Detection</div>
+              <div class="card-sub">Protect yourself and your client</div>
+              <span class="badge badge-must">Must Know</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li><input type="checkbox"><div>Too many skills — "Jack of all, master of none" pattern<span class="sub">Java + Python + .NET + Salesforce + SAP on same resume = red flag</span></div></li>
+              <li><input type="checkbox"><div>Dates don't add up — overlapping jobs, gaps, impossible timelines</div></li>
+              <li><input type="checkbox"><div>No specific project details — only vague role descriptions with buzzwords</div></li>
+              <li><input type="checkbox"><div>Copy-paste job descriptions as experience — same language as JD, no metrics</div></li>
+              <li><input type="checkbox"><div>Ask technical questions specific to their stated years of experience<span class="sub">7-year Java dev cannot struggle to explain OOP, Spring context, or threading</span></div></li>
+              <li><input type="checkbox"><div>Verify LinkedIn profile matches resume — photo, connections, endorsements, activity</div></li>
+              <li><input type="checkbox"><div>Check at least one reference — call, don't just email</div></li>
+              <li><input type="checkbox"><div>Inconsistent grammar/formatting across sections — copy-paste from different sources</div></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TECH -->
+    <div id="sec-tech" class="content-area">
+      <div class="section-heading">⚙️ Technical Knowledge for Recruiters</div>
+      <div class="card-grid">
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#dcfce7;">🗂️</div>
+            <div class="card-meta">
+              <div class="card-title">IT Domain Map</div>
+              <div class="card-sub">Know what each role does</div>
+              <span class="badge badge-must">Must Know</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tbl-wrap">
+              <table>
+                <tr><th>Domain</th><th>Key Technologies</th><th>What they build/do</th></tr>
+                <tr><td>Java Developer</td><td>Java, J2EE, Spring Boot, Microservices, Hibernate, REST API</td><td>Backend apps, enterprise systems</td></tr>
+                <tr><td>.NET Developer</td><td>C#, ASP.NET, MVC, Azure, Entity Framework</td><td>Microsoft stack web apps</td></tr>
+                <tr><td>Python Developer</td><td>Django, Flask, FastAPI, NumPy, Pandas</td><td>Web, data, automation</td></tr>
+                <tr><td>DevOps Engineer</td><td>Docker, Kubernetes, Jenkins, Terraform, Ansible, CI/CD</td><td>Infrastructure, deployment pipelines</td></tr>
+                <tr><td>Cloud Engineer</td><td>AWS (EC2/S3/Lambda), Azure, GCP, Terraform</td><td>Cloud infra, migrations</td></tr>
+                <tr><td>Data Engineer</td><td>Spark, Hadoop, Kafka, Airflow, SQL, Python, Databricks</td><td>Data pipelines, ETL</td></tr>
+                <tr><td>Data Scientist</td><td>Python, R, ML, TensorFlow, scikit-learn, LLMs</td><td>ML models, analytics, AI</td></tr>
+                <tr><td>QA Automation</td><td>Selenium, Cypress, TestNG, JUnit, Postman, API testing</td><td>Test automation frameworks</td></tr>
+                <tr><td>Cybersecurity</td><td>SIEM, Splunk, Palo Alto, ISO 27001, SOC, CISSP</td><td>Security ops, compliance</td></tr>
+                <tr><td>SAP</td><td>SAP FICO, SAP MM, SAP SD, SAP HANA, SAP Basis</td><td>Enterprise ERP systems</td></tr>
+                <tr><td>Salesforce</td><td>Apex, Visualforce, LWC, SOQL, Salesforce Admin, CPQ</td><td>CRM customization</td></tr>
+                <tr><td>Business Analyst</td><td>Agile, Scrum, JIRA, SQL, Visio, UAT, user stories</td><td>Requirements, documentation</td></tr>
+                <tr><td>Project Manager</td><td>PMP, Agile, Scrum, JIRA, Risk Mgmt, Stakeholder Mgmt</td><td>Delivery, coordination</td></tr>
+                <tr><td>Full Stack</td><td>React/Angular + Node.js/Java/Python + SQL/NoSQL</td><td>End-to-end web development</td></tr>
+              </table>
+            </div>
+            <div class="tip">💡 You don't need to code — you need to know enough to have a conversation and spot a mismatch between the job and the resume.</div>
+          </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#ede9fe;">📋</div>
+            <div class="card-meta">
+              <div class="card-title">Job Description Analysis</div>
+              <div class="card-sub">Break down any JD in 5 minutes</div>
+              <span class="badge badge-must">Must Know</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li><input type="checkbox"><div>Identify <strong>Primary Skills</strong> — deal-breakers, listed first, labeled "Required"</div></li>
+              <li><input type="checkbox"><div>Identify <strong>Secondary Skills</strong> — nice-to-have, labeled "Preferred" or "Plus"</div></li>
+              <li><input type="checkbox"><div>Note <strong>Years of experience</strong> — be realistic, ±2 years is usually fine</div></li>
+              <li><input type="checkbox"><div>Confirm <strong>Location</strong> — Remote? Hybrid? Onsite? Which city? Which state?</div></li>
+              <li><input type="checkbox"><div>Check <strong>Visa restrictions</strong> — "Authorized to work without sponsorship" means no H1B</div></li>
+              <li><input type="checkbox"><div>Understand the <strong>Domain/Industry</strong> — Finance, Healthcare, Retail changes the experience needed</div></li>
+              <li><input type="checkbox"><div>Calculate if <strong>bill rate is realistic</strong> for the skill set and location</div></li>
+              <li><input type="checkbox"><div>Check <strong>Duration</strong> — Contract? Contract-to-hire? Direct hire?</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#fef3c7;">🔗</div>
+            <div class="card-meta">
+              <div class="card-title">Skill Synonyms Cheat Sheet</div>
+              <div class="card-sub">Same skill, different names on resumes</div>
+              <span class="badge badge-must">Must Know</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tbl-wrap">
+              <table>
+                <tr><th>Main Skill</th><th>Synonyms / Related</th></tr>
+                <tr><td>Java</td><td>J2EE, Core Java, Java EE, Java SE, JVM</td></tr>
+                <tr><td>.NET</td><td>C#, ASP.NET, .NET Core, VB.NET</td></tr>
+                <tr><td>JavaScript</td><td>JS, Node.js, TypeScript, ECMAScript</td></tr>
+                <tr><td>React</td><td>ReactJS, React.js, React Native (mobile)</td></tr>
+                <tr><td>DevOps</td><td>SRE, Platform Engineer, CI/CD Engineer, Release Engineer</td></tr>
+                <tr><td>Data Engineer</td><td>ETL Developer, Big Data Engineer, Spark Developer</td></tr>
+                <tr><td>QA Automation</td><td>SDET, Test Automation Engineer, QA Engineer</td></tr>
+                <tr><td>Business Analyst</td><td>BA, Functional Analyst, Systems Analyst, Product Owner</td></tr>
+                <tr><td>Kubernetes</td><td>K8s, Container Orchestration</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COMMUNICATION -->
+    <div id="sec-communication" class="content-area">
+      <div class="section-heading">📞 Communication Skills</div>
+      <div class="card-grid">
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#fef3c7;">📞</div>
+            <div class="card-meta">
+              <div class="card-title">Candidate Call Script</div>
+              <div class="card-sub">How to open, screen, and close on a call</div>
+              <span class="badge badge-must">Must Know</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li><input type="checkbox"><div><strong>Opening — first 15 seconds</strong><span class="sub">"Hi [Name], this is [Your name] from [Company]. I found your profile on Dice — do you have 5 minutes? I have an exciting Java role in Texas."</span></div></li>
+              <li><input type="checkbox"><div><strong>Work auth check</strong><span class="sub">"What is your current work authorization? Are you on H1B? Do you need sponsorship?"</span></div></li>
+              <li><input type="checkbox"><div><strong>Location + availability</strong><span class="sub">"Where are you located? This role is [location] — are you open to that? When can you start?"</span></div></li>
+              <li><input type="checkbox"><div><strong>Technical fit check</strong><span class="sub">"Tell me about your Spring Boot experience — what version? What was the team size? What were you building?"</span></div></li>
+              <li><input type="checkbox"><div><strong>Rate check</strong><span class="sub">Ask for expected rate first. Never reveal client budget first. "What is your current rate or expected rate for this type of role?"</span></div></li>
+              <li><input type="checkbox"><div><strong>Commitment close</strong><span class="sub">"If I submit your profile and you get an interview, will you attend? Are you actively interviewing elsewhere?"</span></div></li>
+              <li><input type="checkbox"><div><strong>RTR — Right to Represent</strong><span class="sub">"Can I have your permission to submit your profile to [Client name] for this role?" — always verbal + written</span></div></li>
+            </ul>
+            <div class="warn">⚠️ Never submit without RTR. It protects both you and the candidate from duplicate submissions and legal disputes.</div>
+          </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#dbeafe;">✉️</div>
+            <div class="card-meta">
+              <div class="card-title">Email Templates</div>
+              <div class="card-sub">Outreach, follow-up, and offer emails</div>
+              <span class="badge badge-core">Core</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tip"><strong>Cold Outreach Template:</strong><br><br>Subject: Java Developer – Remote – $75/hr – Austin TX<br><br>Hi [Name],<br>Came across your profile on Dice — strong Spring Boot background. We have an urgent remote opening with a Tier-1 client.<br><br>Role: Java Developer | Duration: 6 months+ | Rate: up to $75/hr W2 | Location: Remote (EST hours)<br><br>Interested? Reply or call me at [number]. Happy to share full JD.<br>– [Your name], [Company]</div>
+            <div class="tip"><strong>Follow-Up (no response after 2 days):</strong><br><br>Hi [Name], following up on my note from [date] — this role is still open and client is interviewing this week. Let me know if you'd like full details. Happy to connect at your convenience.</div>
+            <div class="tip"><strong>Interview Confirmation:</strong><br><br>Hi [Name], great news! The client has scheduled your interview for [Date] at [Time EST]. Please confirm attendance. I will send dial-in/video details separately. Let me know if any conflicts arise ASAP.</div>
+          </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#fce7f3;">🗣️</div>
+            <div class="card-meta">
+              <div class="card-title">Objection Handling</div>
+              <div class="card-sub">What to say when candidates push back</div>
+              <span class="badge badge-core">Core</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tbl-wrap">
+              <table>
+                <tr><th>Objection</th><th>Your Response</th></tr>
+                <tr><td>"I'm not looking right now"</td><td>"Totally understand — may I just share the details? This one has strong long-term potential and pays well. 5 minutes?"</td></tr>
+                <tr><td>"The rate is too low"</td><td>"I understand — let me see what flexibility the client has. Can I tell them you'd consider at $X?"</td></tr>
+                <tr><td>"I already have offers"</td><td>"That's great! This role might still be worth comparing. What are your priorities — rate, remote, tech stack, stability?"</td></tr>
+                <tr><td>"I don't want to relocate"</td><td>"Completely fine — this is fully remote. You can work from [current city]."</td></tr>
+                <tr><td>"I don't interview without written JD"</td><td>"Absolutely — let me email the full JD right now while we talk."</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COMPLIANCE -->
+    <div id="sec-compliance" class="content-area">
+      <div class="section-heading">🛡️ Compliance & Legal Basics</div>
+      <div class="card-grid">
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#fde8e8;">📄</div>
+            <div class="card-meta">
+              <div class="card-title">Compliance Checklist</div>
+              <div class="card-sub">Every recruiter must know these cold</div>
+              <span class="badge badge-must">Must Know</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li><input type="checkbox"><div><strong>RTR — Right to Represent</strong><span class="sub">Written consent from candidate before submitting to any client. Never skip this.</span></div></li>
+              <li><input type="checkbox"><div><strong>I-9 Verification</strong><span class="sub">Employer must verify identity + work authorization for every new employee before Day 1 of work.</span></div></li>
+              <li><input type="checkbox"><div><strong>E-Verify</strong><span class="sub">Federal electronic system to confirm I-9 eligibility. Mandatory for federal contractors.</span></div></li>
+              <li><input type="checkbox"><div><strong>Background Check</strong><span class="sub">Criminal, employment history, education verification — done post-offer but pre-start.</span></div></li>
+              <li><input type="checkbox"><div><strong>NDA (Non-Disclosure Agreement)</strong><span class="sub">Candidate may need to sign before seeing client project details or SOW.</span></div></li>
+              <li><input type="checkbox"><div><strong>Non-Compete / Non-Solicitation</strong><span class="sub">Ask: "Do you have any non-compete with current/previous employer?" It can block placement.</span></div></li>
+              <li><input type="checkbox"><div><strong>MSA (Master Service Agreement)</strong><span class="sub">Contract between your company and client/vendor — defines terms, payment, liability.</span></div></li>
+              <li><input type="checkbox"><div><strong>PO (Purchase Order)</strong><span class="sub">Client issues PO before work starts — no PO = no payment guarantee. Always chase the PO.</span></div></li>
+              <li><input type="checkbox"><div><strong>Drug Test</strong><span class="sub">Some clients (defense, healthcare) require pre-employment drug testing. Disclose to candidate early.</span></div></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TOOLS -->
+    <div id="sec-tools" class="content-area">
+      <div class="section-heading">🖥️ Tools & ATS</div>
+      <div class="card-grid">
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#dcfce7;">🗃️</div>
+            <div class="card-meta">
+              <div class="card-title">ATS Systems</div>
+              <div class="card-sub">Applicant Tracking — your daily workspace</div>
+              <span class="badge badge-tool">Tools</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tbl-wrap">
+              <table>
+                <tr><th>ATS</th><th>Used By</th><th>Key Features</th></tr>
+                <tr><td>Bullhorn</td><td>Mid-to-large staffing firms</td><td>CRM + ATS, submission tracking, VMS integration</td></tr>
+                <tr><td>JobDiva</td><td>US IT staffing firms</td><td>Resume harvesting, hotlist, activity tracking</td></tr>
+                <tr><td>Ceipal</td><td>Smaller/mid staffing</td><td>AI sourcing, affordable, growing fast</td></tr>
+                <tr><td>Avionte</td><td>Light industrial + IT</td><td>Payroll integration, compliance tracking</td></tr>
+                <tr><td>PCRecruiter</td><td>Boutique firms</td><td>Simple, customizable pipeline</td></tr>
+                <tr><td>Greenhouse</td><td>Tech startups</td><td>Strong for direct hire, great UI</td></tr>
+              </table>
+            </div>
+            <ul class="checklist" style="margin-top:10px;">
+              <li><input type="checkbox"><div>Log every candidate activity in ATS — calls, emails, status changes</div></li>
+              <li><input type="checkbox"><div>Use hotlists/tags to organize bench candidates by tech stack</div></li>
+              <li><input type="checkbox"><div>Always update submission status after client feedback</div></li>
+              <li><input type="checkbox"><div>Learn Boolean search within ATS resume database</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card" onclick="toggleCard(this)">
+          <button class="toggle-btn" aria-label="expand">+</button>
+          <div class="card-header">
+            <div class="card-icon" style="background:#ede9fe;">📊</div>
+            <div class="card-meta">
+              <div class="card-title">KPIs & Metrics</div>
+              <div class="card-sub">How your performance is measured</div>
+              <span class="badge badge-core">Core</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tbl-wrap">
+              <table>
+                <tr><th>Metric</th><th>Junior Target</th><th>What it means</th></tr>
+                <tr><td>Submissions/day</td><td>5–8</td><td>Resumes sent to clients daily</td></tr>
+                <tr><td>Interviews/week</td><td>2–4</td><td>Candidates who get client interviews</td></tr>
+                <tr><td>Interview-to-submission ratio</td><td>1:4–1:6</td><td>Quality of your sourcing/screening</td></tr>
+                <tr><td>Closures/month</td><td>1–2</td><td>Placements completed</td></tr>
+                <tr><td>Time-to-fill</td><td>&lt;7 days</td><td>Days from req receipt to placement</td></tr>
+                <tr><td>Fill ratio</td><td>20–30%</td><td>% of open reqs you successfully fill</td></tr>
+                <tr><td>Offer-to-join ratio</td><td>&gt;80%</td><td>Candidates who accept and actually join</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DAILY -->
+    <div id="sec-daily" class="content-area">
+      <div class="section-heading">📅 Daily Routine (Junior)</div>
+
+      <div class="progress-card">
+        <div class="progress-card-title">Weekly Activity Tracker</div>
+        <div class="progress-row">
+          <div class="progress-label-row"><span>Boolean Practice</span><span id="bp-pct">0%</span></div>
+          <div class="progress-track"><div class="progress-fill" id="bp-fill" style="width:0%; background:#2563eb;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-label-row"><span>Candidate Calls</span><span id="cc-pct">0%</span></div>
+          <div class="progress-track"><div class="progress-fill" id="cc-fill" style="width:0%; background:#7c3aed;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-label-row"><span>Tech Study</span><span id="ts-pct">0%</span></div>
+          <div class="progress-track"><div class="progress-fill" id="ts-fill" style="width:0%; background:#059669;"></div></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn" onclick="incProg('bp', 20)">+ Boolean session</button>
+          <button class="btn" onclick="incProg('cc', 15)">+ Call session</button>
+          <button class="btn" onclick="incProg('ts', 25)">+ Tech study</button>
+          <button class="btn" onclick="resetProg()">Reset</button>
+        </div>
+      </div>
+
+      <div class="daily-grid">
+        <div class="day-col"><div class="day-hdr">Mon</div><div class="task t-boolean">5 Boolean strings</div><div class="task t-tech">Java stack</div><div class="task t-call">10 cold calls</div></div>
+        <div class="day-col"><div class="day-hdr">Tue</div><div class="task t-visa">Visa Q&A drill</div><div class="task t-tech">.NET stack</div><div class="task t-call">Screen 5 resumes</div></div>
+        <div class="day-col"><div class="day-hdr">Wed</div><div class="task t-boolean">X-Ray search</div><div class="task t-tech">DevOps tools</div><div class="task t-compliance">I-9 / E-Verify</div></div>
+        <div class="day-col"><div class="day-hdr">Thu</div><div class="task t-call">Mock call</div><div class="task t-tech">Cloud (AWS)</div><div class="task t-visa">Rate calc practice</div></div>
+        <div class="day-col"><div class="day-hdr">Fri</div><div class="task t-boolean">Platform search</div><div class="task t-tech">Data Engineering</div><div class="task t-call">Follow-ups</div></div>
+        <div class="day-col"><div class="day-hdr">Sat</div><div class="task t-mock">Full mock interview</div><div class="task t-review">ATS practice</div></div>
+        <div class="day-col"><div class="day-hdr">Sun</div><div class="task t-review">Weekly review</div><div class="task t-review">Plan next week</div></div>
+      </div>
+    </div>
+
+  </div><!-- end junior -->
+
+  <!-- ===== SENIOR ===== -->
+  <div id="tab-senior" class="content-area">
+    <div class="section-heading">⭐ Senior Recruiter — Advanced Skill Zones</div>
+    <div class="card-grid">
+
+      <div class="card" onclick="toggleCard(this)">
+        <button class="toggle-btn" aria-label="expand">+</button>
+        <div class="card-header">
+          <div class="card-icon" style="background:#ede9fe;">🤝</div>
+          <div class="card-meta">
+            <div class="card-title">Account Management</div>
+            <div class="card-sub">Own client relationships, not just reqs</div>
+            <span class="badge badge-advanced">Advanced</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="checklist">
+            <li><input type="checkbox"><div>Understand client's org structure — hiring manager, HR, procurement</div></li>
+            <li><input type="checkbox"><div>Know client's preferred visa types, blacklisted vendors, interview style</div></li>
+            <li><input type="checkbox"><div>Build rapport beyond just submitting resumes — check in weekly without reqs</div></li>
+            <li><input type="checkbox"><div>Track client's project pipeline — anticipate upcoming hiring needs 4–8 weeks ahead</div></li>
+            <li><input type="checkbox"><div>Handle escalations — candidate no-show, withdrawal, rate disputes — professionally</div></li>
+            <li><input type="checkbox"><div>Conduct Quarterly Business Reviews (QBR) — present fill rates, placements, value delivered</div></li>
+            <li><input type="checkbox"><div>Know client's budget cycle — when they approve new headcount</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)">
+        <button class="toggle-btn" aria-label="expand">+</button>
+        <div class="card-header">
+          <div class="card-icon" style="background:#fef3c7;">💬</div>
+          <div class="card-meta">
+            <div class="card-title">Advanced Rate Negotiation</div>
+            <div class="card-sub">Protect margin while closing candidates</div>
+            <span class="badge badge-advanced">Advanced</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="checklist">
+            <li><input type="checkbox"><div>Never be the first to quote — ask candidate's expected rate first</div></li>
+            <li><input type="checkbox"><div>Anchor technique: "Our range for this role is $X to $Y — where do you fall?"</div></li>
+            <li><input type="checkbox"><div>Handle "I need more" — pivot to benefits, remote flexibility, long-term opportunity</div></li>
+            <li><input type="checkbox"><div>Counter-offer handling — ask what it would take before candidate accepts counter</div></li>
+            <li><input type="checkbox"><div>Understand blended rates for mixed teams and managed services deals</div></li>
+            <li><input type="checkbox"><div>Know when to walk away — if margin drops below viability, let the req go</div></li>
+          </ul>
+          <div class="tip">💡 Senior tip: Always leave $3–5 buffer between your floor and what you quote. Negotiation always happens. If you quote your floor, you lose margin every time.</div>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)">
+        <button class="toggle-btn" aria-label="expand">+</button>
+        <div class="card-header">
+          <div class="card-icon" style="background:#dcfce7;">📦</div>
+          <div class="card-meta">
+            <div class="card-title">Bench Sales & Proactive Marketing</div>
+            <div class="card-sub">Don't wait for reqs — market your bench</div>
+            <span class="badge badge-advanced">Advanced</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="checklist">
+            <li><input type="checkbox"><div>Maintain a hotlist of available consultants: tech stack + location + visa + availability date</div></li>
+            <li><input type="checkbox"><div>Market bench candidates proactively to clients/vendors before a req is open</div></li>
+            <li><input type="checkbox"><div>Craft compelling marketing emails: "Available: 8yr Java + Microservices, GC, remote-ready"</div></li>
+            <li><input type="checkbox"><div>Network with prime vendors to get listed as approved sub-vendor</div></li>
+            <li><input type="checkbox"><div>Track candidate availability dates — reach out 2–3 weeks before project end</div></li>
+            <li><input type="checkbox"><div>Keep consultants warm even while placed — relationship continuity = repeat business</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)">
+        <button class="toggle-btn" aria-label="expand">+</button>
+        <div class="card-header">
+          <div class="card-icon" style="background:#dbeafe;">👥</div>
+          <div class="card-meta">
+            <div class="card-title">Team & Delivery Management</div>
+            <div class="card-sub">Leading a recruitment pod</div>
+            <span class="badge badge-advanced">Advanced</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="checklist">
+            <li><input type="checkbox"><div>Allocate reqs based on recruiter skill strengths — Java-savvy recruiter gets Java reqs</div></li>
+            <li><input type="checkbox"><div>Daily standup — pipeline health, blockers, submission counts per recruiter</div></li>
+            <li><input type="checkbox"><div>Train junior recruiters — boolean, screening calls, compliance, ATS</div></li>
+            <li><input type="checkbox"><div>Set team KPIs and track weekly — submissions, interviews, closures per recruiter</div></li>
+            <li><input type="checkbox"><div>Handle difficult situations — team conflict, low performance, client escalations</div></li>
+            <li><input type="checkbox"><div>Report to leadership — weekly delivery reports, pipeline forecasting</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)">
+        <button class="toggle-btn" aria-label="expand">+</button>
+        <div class="card-header">
+          <div class="card-icon" style="background:#fce7f3;">📈</div>
+          <div class="card-meta">
+            <div class="card-title">Senior KPIs</div>
+            <div class="card-sub">What senior performance looks like</div>
+            <span class="badge badge-advanced">Advanced</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>Metric</th><th>Senior Target</th><th>Notes</th></tr>
+              <tr><td>Submissions/day</td><td>8–12</td><td>Quality over quantity at this level</td></tr>
+              <tr><td>Interviews/week</td><td>5–8</td><td>Better interview-to-submission ratio</td></tr>
+              <tr><td>Closures/month</td><td>3–5+</td><td>Mix of contract + direct hire</td></tr>
+              <tr><td>Revenue contribution</td><td>$15K–50K+/mo</td><td>Depends on placement type and margin</td></tr>
+              <tr><td>Client retention rate</td><td>&gt;80%</td><td>Clients keep coming back specifically to you</td></tr>
+              <tr><td>Interview-to-offer ratio</td><td>1:2–1:3</td><td>Better quality of candidate screening</td></tr>
+              <tr><td>Repeat placements</td><td>&gt;30% of pipeline</td><td>Placing same candidates again = deep trust</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)">
+        <button class="toggle-btn" aria-label="expand">+</button>
+        <div class="card-header">
+          <div class="card-icon" style="background:#fde8e8;">⚖️</div>
+          <div class="card-meta">
+            <div class="card-title">Advanced Compliance & Contracts</div>
+            <div class="card-sub">MSA, SOW, PO — contract-level knowledge</div>
+            <span class="badge badge-advanced">Advanced</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="checklist">
+            <li><input type="checkbox"><div><strong>SOW (Statement of Work)</strong> — scope, deliverables, timeline, pricing<span class="sub">Different from time-and-material contracts — fixed scope, fixed price</span></div></li>
+            <li><input type="checkbox"><div><strong>MSA amendments</strong> — know when client changes terms and what you can/can't agree to</div></li>
+            <li><input type="checkbox"><div><strong>IC misclassification risk</strong> — 1099 vs W2 legal exposure for your company</div></li>
+            <li><input type="checkbox"><div><strong>ACA compliance</strong> — benefits requirements for contractors working 30+ hrs/week</div></li>
+            <li><input type="checkbox"><div><strong>Immigration compliance</strong> — H1B LCA, OPT STEM extensions, visa validity tracking</div></li>
+            <li><input type="checkbox"><div><strong>OFCCP regulations</strong> — federal contractor equal opportunity requirements</div></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== ROADMAP ===== -->
+  <div id="tab-roadmap" class="content-area">
+    <div class="section-heading">🗺️ 90-Day Study Roadmap</div>
+
+    <div class="progress-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <span style="font-size:14px; font-weight:600;">Overall Progress</span>
+        <span id="rm-label" style="font-size:13px; color:var(--text2);">0 / 12 weeks</span>
+      </div>
+      <div class="progress-track" style="height:10px;"><div class="progress-fill" id="rm-fill" style="width:0%; background:var(--navy);"></div></div>
+    </div>
+
+    <div class="roadmap-block">
+      <div class="roadmap-block-title" style="color:#9b1c1c;">📅 Month 1 — Weeks 1–4: Foundations</div>
+      <div class="roadmap-step"><div class="step-num">1</div><div class="step-info"><div class="step-title">W2, C2C, 1099 + Visa Types</div><div class="step-desc">Master all employment models and 8 visa types. Practice explaining each without notes.</div><div class="step-week">Week 1</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+      <div class="roadmap-step"><div class="step-num">2</div><div class="step-info"><div class="step-title">Rate Calculations + Vendor Layers</div><div class="step-desc">Do 20 mock rate calculations. Learn vendor tier structure with real examples.</div><div class="step-week">Week 2</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+      <div class="roadmap-step"><div class="step-num">3</div><div class="step-info"><div class="step-title">Boolean Mastery</div><div class="step-desc">Write 5 full boolean strings daily. Practice on Dice, LinkedIn, and Google X-Ray.</div><div class="step-week">Week 3</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+      <div class="roadmap-step"><div class="step-num">4</div><div class="step-info"><div class="step-title">First Mock Screening Calls</div><div class="step-desc">Record yourself doing 10 mock candidate calls. Review accent, pace, and question flow.</div><div class="step-week">Week 4</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+    </div>
+
+    <div class="roadmap-block">
+      <div class="roadmap-block-title" style="color:#1e40af;">📅 Month 2 — Weeks 5–8: Core Skills</div>
+      <div class="roadmap-step"><div class="step-num">5</div><div class="step-info"><div class="step-title">IT Tech Stacks Deep Dive</div><div class="step-desc">Study 2 tech stacks per week: Java, .NET, DevOps, Cloud. Know synonyms and skill hierarchy.</div><div class="step-week">Week 5–6</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+      <div class="roadmap-step"><div class="step-num">6</div><div class="step-info"><div class="step-title">ATS System Practice</div><div class="step-desc">Get hands-on with Bullhorn or JobDiva. Practice candidate entry, submission, pipeline stages.</div><div class="step-week">Week 6</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+      <div class="roadmap-step"><div class="step-num">7</div><div class="step-info"><div class="step-title">Compliance Deep Dive</div><div class="step-desc">RTR, I-9, E-Verify, NDA, background checks — role-play each scenario with a partner.</div><div class="step-week">Week 7</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+      <div class="roadmap-step"><div class="step-num">8</div><div class="step-info"><div class="step-title">Resume Screening Speed Drill</div><div class="step-desc">Screen 10 real-looking resumes in 30 minutes. Accept/reject each with written reasons.</div><div class="step-week">Week 8</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+    </div>
+
+    <div class="roadmap-block">
+      <div class="roadmap-block-title" style="color:#166534;">📅 Month 3 — Weeks 9–12: Job-Ready</div>
+      <div class="roadmap-step"><div class="step-num">9</div><div class="step-info"><div class="step-title">Rate Negotiation Role-Play</div><div class="step-desc">10 live negotiations with a partner. Handle "I need more," counter-offers, walk-aways.</div><div class="step-week">Week 9</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+      <div class="roadmap-step"><div class="step-num">10</div><div class="step-info"><div class="step-title">Full Pipeline Simulation</div><div class="step-desc">Pick 3 real job postings. Source → Screen → Submit → Follow-up. Track in a spreadsheet.</div><div class="step-week">Week 10</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+      <div class="roadmap-step"><div class="step-num">11</div><div class="step-info"><div class="step-title">Interview Prep</div><div class="step-desc">Practice: "Walk me through your sourcing process," "How do you screen fake resumes?" etc.</div><div class="step-week">Week 11</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+      <div class="roadmap-step"><div class="step-num">12</div><div class="step-info"><div class="step-title">Full Mock Recruiter Interview Day</div><div class="step-desc">Complete 2-hour mock interview covering all zones. Record it. Grade yourself against the checklist.</div><div class="step-week">Week 12</div><br><input type="checkbox" onchange="updateRM(this)" style="accent-color:var(--navy);"></div></div>
+    </div>
+  </div>
+
+  <!-- ===== QUIZ ===== -->
+  <div id="tab-quiz" class="content-area">
+    <div class="section-heading">🧠 Self-Quiz — Test Your Knowledge</div>
+    <div class="score-bar">
+      <span>Score:</span>
+      <strong id="q-score">0</strong>
+      <span>/ <strong id="q-total">0</strong> answered</span>
+      <button class="btn" onclick="resetQuiz()" style="margin-left:auto;">Reset quiz</button>
+    </div>
+
+    <div class="quiz-card" id="q1">
+      <div class="quiz-q">1. A candidate says they are on OPT STEM extension. How long can they work without H1B sponsorship?</div>
+      <div class="quiz-options">
+        <div class="quiz-opt" onclick="answer(this,'q1','q1-fb',false,'OPT STEM gives 24 months extension on top of the initial 12-month OPT = 36 months total. Always check the EAD card expiry date.')">12 months</div>
+        <div class="quiz-opt" onclick="answer(this,'q1','q1-fb',false,'OPT STEM gives 24 months extension on top of the initial 12-month OPT = 36 months total. Always check the EAD card expiry date.')">24 months only</div>
+        <div class="quiz-opt" onclick="answer(this,'q1','q1-fb',true,'Correct! 12 months initial OPT + 24 months STEM extension = 36 months total. Always verify the actual EAD card expiry date before placement.')">36 months total</div>
+        <div class="quiz-opt" onclick="answer(this,'q1','q1-fb',false,'OPT STEM gives 24 months extension on top of the initial 12-month OPT = 36 months total. Always check the EAD card expiry date.')">Unlimited until H1B lottery</div>
+      </div>
+      <div class="quiz-feedback" id="q1-fb"></div>
+    </div>
+
+    <div class="quiz-card" id="q2">
+      <div class="quiz-q">2. Client's bill rate is $90/hr. You pay candidate $72/hr W2. What is your gross margin per 40-hour week?</div>
+      <div class="quiz-options">
+        <div class="quiz-opt" onclick="answer(this,'q2','q2-fb',false,'($90 − $72) = $18/hr × 40 hours = $720/week gross margin.')">$560</div>
+        <div class="quiz-opt" onclick="answer(this,'q2','q2-fb',true,'Correct! ($90 − $72) = $18/hr × 40 hours = $720/week gross margin. This is before overhead costs like benefits.')">$720</div>
+        <div class="quiz-opt" onclick="answer(this,'q2','q2-fb',false,'($90 − $72) = $18/hr × 40 hours = $720/week gross margin.')">$900</div>
+        <div class="quiz-opt" onclick="answer(this,'q2','q2-fb',false,'($90 − $72) = $18/hr × 40 hours = $720/week gross margin.')">$288</div>
+      </div>
+      <div class="quiz-feedback" id="q2-fb"></div>
+    </div>
+
+    <div class="quiz-card" id="q3">
+      <div class="quiz-q">3. A client says "No H1B sponsorship." Which candidate CAN you submit?</div>
+      <div class="quiz-options">
+        <div class="quiz-opt" onclick="answer(this,'q3','q3-fb',false,'H1B requires employer sponsorship — cannot be submitted when client says no sponsorship.')">H1B candidate with 3 years remaining</div>
+        <div class="quiz-opt" onclick="answer(this,'q3','q3-fb',true,'Correct! OPT STEM EAD means the candidate is independently authorized to work — no employer sponsorship required. They have their own EAD card.')">OPT STEM candidate with valid EAD</div>
+        <div class="quiz-opt" onclick="answer(this,'q3','q3-fb',false,'L1 visa is company-specific and cannot be transferred to work at another employer or client site.')">L1 visa candidate</div>
+        <div class="quiz-opt" onclick="answer(this,'q3','q3-fb',false,'CPT is tied to the student\'s active school enrollment — strict restrictions make it unsuitable here.')">CPT candidate</div>
+      </div>
+      <div class="quiz-feedback" id="q3-fb"></div>
+    </div>
+
+    <div class="quiz-card" id="q4">
+      <div class="quiz-q">4. What does RTR stand for, and when must you get it?</div>
+      <div class="quiz-options">
+        <div class="quiz-opt" onclick="answer(this,'q4','q4-fb',false,'RTR = Right to Represent. It must be obtained BEFORE submitting the resume — not after.')">Right to Recruit — after interview confirmation</div>
+        <div class="quiz-opt" onclick="answer(this,'q4','q4-fb',true,'Correct! RTR = Right to Represent. Always get verbal + written permission BEFORE submitting. This prevents duplicate submissions and legal disputes.')">Right to Represent — before any submission</div>
+        <div class="quiz-opt" onclick="answer(this,'q4','q4-fb',false,'RTR = Right to Represent. It must be obtained BEFORE submitting a candidate\'s resume — not after placement.')">Right to Represent — after placement only</div>
+        <div class="quiz-opt" onclick="answer(this,'q4','q4-fb',false,'RTR = Right to Represent. It has nothing to do with internal transfers.')">Recruiter Transfer Request — for internal transfers</div>
+      </div>
+      <div class="quiz-feedback" id="q4-fb"></div>
+    </div>
+
+    <div class="quiz-card" id="q5">
+      <div class="quiz-q">5. Which Boolean string is correctly formatted for a production search?</div>
+      <div class="quiz-options">
+        <div class="quiz-opt" onclick="answer(this,'q5','q5-fb',false,'Boolean operators must be UPPERCASE. Lowercase "and", "or", "not" may not work on Dice/LinkedIn. "Entry Level" also needs quotes.')">java AND developer not (junior or fresher)</div>
+        <div class="quiz-opt" onclick="answer(this,'q5','q5-fb',true,'Correct! Uppercase operators, quoted multi-word phrases, properly grouped exclusions — this is production-ready Boolean.')"> (Java OR J2EE) AND (Developer OR Engineer) NOT (Junior OR Fresher OR "Entry Level" OR Intern)</div>
+        <div class="quiz-opt" onclick="answer(this,'q5','q5-fb',false,'Missing proper NOT grouping, lowercase operators, and "Entry Level" needs to be quoted as a phrase.')">Java AND Developer AND NOT Junior fresher intern</div>
+        <div class="quiz-opt" onclick="answer(this,'q5','q5-fb',false,'Minus (-) operators are for Google only. Most recruiting platforms require NOT in uppercase.')">Java Developer -Junior -fresher -intern</div>
+      </div>
+      <div class="quiz-feedback" id="q5-fb"></div>
+    </div>
+
+    <div class="quiz-card" id="q6">
+      <div class="quiz-q">6. A candidate on OPT tells you they can do C2C. What is the most important follow-up question?</div>
+      <div class="quiz-options">
+        <div class="quiz-opt" onclick="answer(this,'q6','q6-fb',false,'Rate is important but not the most critical concern here. OPT candidates doing C2C have a major legal issue that must be verified first.')">What is your expected hourly rate?</div>
+        <div class="quiz-opt" onclick="answer(this,'q6','q6-fb',false,'Start date matters but is secondary to the critical legal compliance issue with OPT + C2C.')">When can you start?</div>
+        <div class="quiz-opt" onclick="answer(this,'q6','q2-fb',false,'References matter but this is not the most critical issue when an OPT candidate claims C2C status.')">Can you provide references?</div>
+        <div class="quiz-opt" onclick="answer(this,'q6','q6-fb',true,'Correct! OPT students on F1 visa technically cannot work as independent contractors (1099/C2C) — their visa status restricts them to employment (W2). This can cause serious compliance violations. Always clarify.')">Do you have your own LLC/Corp registered? OPT visa may restrict C2C work.</div>
+      </div>
+      <div class="quiz-feedback" id="q6-fb"></div>
+    </div>
+
+    <div class="quiz-complete" id="quiz-done">
+      <div class="quiz-complete-title">Quiz Complete!</div>
+      <div class="quiz-complete-msg" id="quiz-done-msg"></div>
+    </div>
+  </div>
+
+  <!-- ===== CAREER PATH ===== -->
+  <div id="tab-career" class="content-area">
+    <div class="section-heading">🚀 Career Growth Path</div>
+
+    <div class="career-path">
+      <div class="career-node"><div class="cn-title">Junior Recruiter</div><div class="cn-time">0–6 months</div></div>
+      <div class="career-arrow">→</div>
+      <div class="career-node"><div class="cn-title">Recruiter</div><div class="cn-time">6–18 months</div></div>
+      <div class="career-arrow">→</div>
+      <div class="career-node"><div class="cn-title">Senior Recruiter</div><div class="cn-time">18–36 months</div></div>
+      <div class="career-arrow">→</div>
+      <div class="career-node"><div class="cn-title">Lead / Team Lead</div><div class="cn-time">3–5 years</div></div>
+      <div class="career-arrow">→</div>
+      <div class="career-node"><div class="cn-title">Delivery Manager</div><div class="cn-time">5+ years</div></div>
+    </div>
+
+    <div class="card-grid" style="margin-top:20px;">
+
+      <div class="card" onclick="toggleCard(this)">
+        <button class="toggle-btn" aria-label="expand">+</button>
+        <div class="card-header">
+          <div class="card-icon" style="background:#dbeafe;">🎯</div>
+          <div class="card-meta">
+            <div class="card-title">Top Interview Questions for Recruiters</div>
+            <div class="card-sub">What hiring managers will ask you</div>
+            <span class="badge badge-must">Must Know</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="checklist">
+            <li><input type="checkbox"><div>"Walk me through your end-to-end recruitment process"<span class="sub">Mention: JD analysis → sourcing → boolean → screening → RTR → submission → follow-up</span></div></li>
+            <li><input type="checkbox"><div>"How do you identify a fake or padded resume?"<span class="sub">Cover: date gaps, skill overload, vague project descriptions, technical verification call</span></div></li>
+            <li><input type="checkbox"><div>"What is the difference between W2, C2C, and 1099?"<span class="sub">Be ready to explain tax responsibility, rate equivalence, and use cases for each</span></div></li>
+            <li><input type="checkbox"><div>"How many submissions can you make per day? What are your KPIs?"<span class="sub">Junior: 5–8/day. Know your interview ratio and closure rate.</span></div></li>
+            <li><input type="checkbox"><div>"Write a Boolean string for a DevOps Engineer with Kubernetes experience"<span class="sub">Practice live — they may actually ask you to write it on the spot</span></div></li>
+            <li><input type="checkbox"><div>"How do you handle a candidate who backs out after accepting an offer?"<span class="sub">Have a contingency plan — pipeline backup candidates, communication strategy</span></div></li>
+            <li><input type="checkbox"><div>"What is RTR and why is it important?"<span class="sub">Right to Represent — explain why it prevents legal disputes and duplicate submissions</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)">
+        <button class="toggle-btn" aria-label="expand">+</button>
+        <div class="card-header">
+          <div class="card-icon" style="background:#ede9fe;">🏆</div>
+          <div class="card-meta">
+            <div class="card-title">What Makes a Top Recruiter</div>
+            <div class="card-sub">The real differentiators in US IT staffing</div>
+            <span class="badge badge-advanced">Advanced</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="checklist">
+            <li><input type="checkbox"><div><strong>Speed</strong> — Top recruiters respond to candidates within 30 minutes of a req coming in<span class="sub">The staffing game is won in the first hour</span></div></li>
+            <li><input type="checkbox"><div><strong>Quality screening</strong> — Fewer, better submissions that actually convert to interviews</div></li>
+            <li><input type="checkbox"><div><strong>Relationship depth</strong> — Candidates who trust you will call you first when they're available<span class="sub">This is your unfair advantage over competitors</span></div></li>
+            <li><input type="checkbox"><div><strong>Tech fluency</strong> — Knowing enough to have a real conversation with a Java developer</div></li>
+            <li><input type="checkbox"><div><strong>Compliance discipline</strong> — Never shortcuts on RTR, I-9, background checks<span class="sub">One compliance mistake can cost you a client</span></div></li>
+            <li><input type="checkbox"><div><strong>Communication clarity</strong> — Clear, confident US English on calls and in emails</div></li>
+            <li><input type="checkbox"><div><strong>Pipeline mindset</strong> — Always building 3 months ahead, not just today's req</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleCard(this)">
+        <button class="toggle-btn" aria-label="expand">+</button>
+        <div class="card-header">
+          <div class="card-icon" style="background:#dcfce7;">📚</div>
+          <div class="card-meta">
+            <div class="card-title">Recommended Learning Resources</div>
+            <div class="card-sub">Continue growing beyond this guide</div>
+            <span class="badge badge-tool">Resources</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="checklist">
+            <li><input type="checkbox"><div>Dice.com — create free account, practice resume search daily</div></li>
+            <li><input type="checkbox"><div>LinkedIn Learning — "Recruiting Foundations" and "Talent Sourcing" courses</div></li>
+            <li><input type="checkbox"><div>SHRM (Society for Human Resource Management) — HR and compliance basics</div></li>
+            <li><input type="checkbox"><div>YouTube — search "US IT staffing recruiter training" for free tutorials</div></li>
+            <li><input type="checkbox"><div>Reddit r/recruiting — real recruiter experiences and advice</div></li>
+            <li><input type="checkbox"><div>iCIMS, Bullhorn Academy — free ATS training modules</div></li>
+            <li><input type="checkbox"><div>USCIS.gov — official source for visa rules, OPT/H1B details, I-9 guidance</div></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<script>
+  var prog = { bp:0, cc:0, ts:0 };
+  var rmCount = 0;
+  var qScore = 0, qAnswered = 0;
+
+  function switchTab(id, el) {
+    document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+    el.classList.add('active');
+    document.querySelectorAll('[id^="tab-"]').forEach(function(t){ t.classList.remove('visible'); });
+    document.getElementById('tab-' + id).classList.add('visible');
+    document.getElementById('sec-nav').style.display = (id === 'junior') ? 'flex' : 'none';
+  }
+
+  function showSec(name, el) {
+    document.querySelectorAll('.nav-pill').forEach(function(p){ p.classList.remove('active'); });
+    el.classList.add('active');
+    var juniorSecs = document.querySelectorAll('#tab-junior .content-area');
+    juniorSecs.forEach(function(s){ s.classList.remove('visible'); });
+    var target = document.getElementById('sec-' + name);
+    if (target) target.classList.add('visible');
+  }
+
+  function toggleCard(card) {
+    card.classList.toggle('open');
+  }
+
+  function incProg(key, amount) {
+    prog[key] = Math.min(100, prog[key] + amount);
+    document.getElementById(key + '-fill').style.width = prog[key] + '%';
+    document.getElementById(key + '-pct').textContent = prog[key] + '%';
+  }
+
+  function resetProg() {
+    ['bp','cc','ts'].forEach(function(k){
+      prog[k] = 0;
+      document.getElementById(k + '-fill').style.width = '0%';
+      document.getElementById(k + '-pct').textContent = '0%';
+    });
+  }
+
+  function updateRM(cb) {
+    rmCount += cb.checked ? 1 : -1;
+    rmCount = Math.max(0, rmCount);
+    var pct = Math.round((rmCount / 12) * 100);
+    document.getElementById('rm-fill').style.width = pct + '%';
+    document.getElementById('rm-label').textContent = rmCount + ' / 12 weeks';
+  }
+
+  function answer(opt, qId, fbId, correct, msg) {
+    var card = document.getElementById(qId);
+    if (card.dataset.answered) return;
+    card.dataset.answered = '1';
+    qAnswered++;
+    document.getElementById('q-total').textContent = qAnswered;
+
+    card.querySelectorAll('.quiz-opt').forEach(function(o){ o.style.pointerEvents = 'none'; });
+
+    var fb = document.getElementById(fbId);
+    fb.textContent = msg;
+    fb.classList.add('show');
+
+    if (correct) {
+      opt.classList.add('correct');
+      fb.classList.add('correct');
+      qScore++;
+      document.getElementById('q-score').textContent = qScore;
+    } else {
+      opt.classList.add('wrong');
+      fb.classList.add('wrong');
+    }
+
+    if (qAnswered === 6) {
+      var done = document.getElementById('quiz-done');
+      done.style.display = 'block';
+      var pct = Math.round((qScore / 6) * 100);
+      var verdict = pct >= 83 ? '🎉 Excellent! You are well on your way to being job-ready.' :
+                    pct >= 67 ? '👍 Good start! Review sections where you missed and retry.' :
+                                '📚 Keep studying — revisit Foundations and Compliance sections.';
+      document.getElementById('quiz-done-msg').textContent = qScore + '/6 correct (' + pct + '%). ' + verdict;
+    }
+  }
+
+  function resetQuiz() {
+    qScore = 0; qAnswered = 0;
+    document.getElementById('q-score').textContent = '0';
+    document.getElementById('q-total').textContent = '0';
+    document.getElementById('quiz-done').style.display = 'none';
+    ['q1','q2','q3','q4','q5','q6'].forEach(function(id){
+      var card = document.getElementById(id);
+      delete card.dataset.answered;
+      card.querySelectorAll('.quiz-opt').forEach(function(o){
+        o.classList.remove('correct','wrong');
+        o.style.pointerEvents = '';
+      });
+      var fb = document.getElementById(id + '-fb');
+      if (fb) { fb.className = 'quiz-feedback'; fb.textContent = ''; }
+    });
+  }
+</script>
+</body>
+</html>
